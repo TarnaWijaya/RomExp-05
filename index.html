@@ -1,0 +1,133 @@
+<html>
+<head>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <script>
+    function checkPassword() {
+      const correctPassword = "REXP"; // Kata sandi yang benar
+      const inputPassword = document.getElementById("password").value;
+      const errorMessage = document.getElementById("error-message");
+
+      if (inputPassword === correctPassword) {
+        window.location.href = "https://xtarnawijaya.blogspot.com/2024/10/rom-exp-50.html?m=1"; // Ganti dengan URL halaman yang benar
+      } else {
+        errorMessage.textContent = "Kata sandi salah. Silakan coba lagi.";
+      }
+    }
+
+    function acceptCookies() {
+      localStorage.setItem("cookiesAccepted", "true");
+      document.getElementById("cookie-banner").style.display = "none";
+    }
+
+    function toggleTheme() {
+      const body = document.body;
+      const themeIcon = document.getElementById("theme-icon");
+
+      if (body.classList.contains("dark")) {
+        body.classList.remove("dark");
+        themeIcon.classList.remove("fa-sun");
+        themeIcon.classList.add("fa-moon");
+      } else {
+        body.classList.add("dark");
+        themeIcon.classList.remove("fa-moon");
+        themeIcon.classList.add("fa-sun");
+      }
+    }
+
+    function toggleMenu() {
+      const menuIcon = document.getElementById("menu-icon");
+      const dropdownMenu = document.getElementById("dropdown-menu");
+
+      if (dropdownMenu.classList.contains("hidden")) {
+        dropdownMenu.classList.remove("hidden");
+        menuIcon.classList.remove("fa-bars");
+        menuIcon.classList.add("fa-times");
+      } else {
+        dropdownMenu.classList.add("hidden");
+        menuIcon.classList.remove("fa-times");
+        menuIcon.classList.add("fa-bars");
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+      if (localStorage.getItem("cookiesAccepted") === "true") {
+        document.getElementById("cookie-banner").style.display = "none";
+      }
+    });
+  </script>
+  <style>
+    .dark {
+      background-color: #1a202c;
+      color: #cbd5e0;
+    }
+    .dark .bg-white {
+      background-color: #2d3748;
+    }
+    .dark .text-gray-600 {
+      color: #a0aec0;
+    }
+    .dark .text-gray-500 {
+      color: #718096;
+    }
+    .dark .text-gray-400 {
+      color: #a0aec0;
+    }
+    .dark .bg-blue-900 {
+      background-color: #2a4365;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 flex flex-col min-h-screen">
+  <!-- Header -->
+  <header class="bg-white shadow-md">
+    <div class="container mx-auto flex justify-between items-center py-4 px-6">
+      <div class="flex items-center">
+        <img alt="Pastelink.net logo" class="h-8 w-8 mr-2" height="50" src="https://storage.googleapis.com/a1aa/image/S2WfhjryeTkTXEgfSXHNBnqyPGOy2VAejYZZoEdZhktTnlQOB.jpg" width="50"/>
+        <div>
+          <h1 class="text-2xl font-bold text-blue-600">Pastelink.net</h1>
+          <p class="text-sm text-gray-500">bahasa Indonesia</p>
+        </div>
+      </div>
+      <div class="flex items-center">
+        <i id="theme-icon" class="fas fa-moon text-xl text-gray-600 mr-4 cursor-pointer" onclick="toggleTheme()"></i>
+        <button class="text-gray-600 text-lg" onclick="toggleMenu()">
+          <i id="menu-icon" class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+    <div id="dropdown-menu" class="hidden bg-white shadow-md absolute top-16 left-0 right-0 mx-auto w-64 text-center py-4">
+      <a href="https://pastelink.net/submit" class="block py-2 text-gray-600">Buat</a>
+      <a href="https://da.gd/LinkShort" class="block py-2 text-gray-600">Media</a>
+      <a href="https://pastelink.net/contact" class="block py-2 text-gray-600">Kotak</a>
+      <a href="https://pastelink.net/login" class="block py-2 text-gray-600">Masuk</a>
+    </div>
+  </header>
+  <!-- Main Content -->
+  <main class="flex-grow flex flex-col items-center justify-center">
+    <div class="text-center">
+      <p class="text-lg mb-4">Postingan ini memerlukan kata sandi untuk dilihat</p>
+      <div class="flex items-center justify-center">
+        <input id="password" class="border border-gray-300 p-2 w-64" placeholder="Kata Sandi" type="password"/>
+        <button class="bg-blue-600 text-white p-2 ml-2" onclick="checkPassword()">Masuk</button>
+      </div>
+      <p id="error-message" class="text-red-500 mt-4"></p>
+    </div>
+  </main>
+  <!-- Footer -->
+  <footer class="bg-white shadow-md mt-8">
+    <div id="cookie-banner" class="container mx-auto py-4 px-6 text-center">
+      <p class="text-sm text-gray-600 mb-2">
+        Kami menggunakan cookie di situs web kami untuk memberi Anda pengalaman yang paling relevan dengan mengingat preferensi Anda dan kunjungan berulang. Dengan mengklik "Terima", Anda menyetujui penggunaan semua cookie.
+      </p>
+      <a class="text-blue-600 cursor-pointer" onclick="acceptCookies()">Terima</a>
+    </div>
+    <div class="bg-blue-900 py-4">
+      <div class="container mx-auto text-center">
+        <h1 class="text-2xl font-bold text-white">Pastelink.net</h1>
+        <p class="text-sm text-gray-400">bahasa Indonesia</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
